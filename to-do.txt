@@ -1,0 +1,54 @@
+To-do:
+
+====================================================================================================
+
+MAIN GOALS:
+
+- Front end: Flask
+	1. Main website to pick out genre(s)
+	2. Website page for book results based on query (say top 5-10)
+		- Possibly add filtering results later too
+
+- Obtaining book database
+	1. Obtain book files from https://www.gutenberg.org/
+	2. Have a whole "book_database" folder containing books possibly?
+
+- Create inverted index/frequency index
+	1. First create an inverted index of all words from all books ( format = {"monster": ["frankenstein.txt", "monster.txt", etc...]} )
+		- Each index will be the books themselves
+	2. Save this into a "book_iindex_database" folder possibly?
+	3. Create a frequency index of all words from all books as well ( format = frankenstein_word_freq.txt -> {"monster": 25, "kill": 50, etc...} )
+		- Reasoning behind this is because a book may CONTAIN a category word, but it may only appear once/a few times
+		- Using this frequency database, we can get a more accurate idea of which books actually pertain to a genre (if a word appears say 50 times)
+	4. Save this into a "book_frequency_database" folder possibly?
+	5. Get rid of major stop words: https://github.com/Yoast/YoastSEO.js/blob/acd077ca44d904632d8ae7fa5699bdcb76741379/js/config/stopwords.js
+	
+- Utilizing the NYPL API: http://api.repo.nypl.org/
+	1. Figure out how to access the data
+	2. Find major keywords for specific genres -> save into file? ( format = {"romance": ["love", "kiss", etc...]} )
+	
+- Create our own categorization OR use NYPL's if that's possible?
+	1. Access NYPL API/the data from NYPL API, take all the words pertaining to the category
+	2. Use those words and go into our iindex database, find top books containing those words
+		- *This is kind of redundant in that we could probably use the API for the books themselves, BUT we're looking to utilize iindex and frequency
+
+====================================================================================================
+
+FLOW:
+A) User accesses website, inputs specific category(ies) such as romance, horror, etc.
+
+B) Each category would have a set of main keywords (from the NYPL database?); keep track of those keywords
+
+C) Using those keywords, use the iindex database and frequency database to find top books
+	- Top books = Books with the greatest amount of "matches" of keywords (in that they appear at least once; iindex), along with actual apperances (frequency)
+	- CAN EVEN DO THIS BEFOREHAND: Basically create our own catalog beforehand one time only to make process even faster
+		- Program wouldn't need to do this calculation everytime; we would already have databases ready
+		
+D) Return top books results back to the user in the form of a scrollable list on a website
+	- Can add filtering/sorting of results later as well
+
+====================================================================================================
+
+FUTURE GOALS (if we have time):
+	- Create a filtering method on our results website as well
+	- "Create" our own book out of the data using n-grams as well; machine_learning-esque project
