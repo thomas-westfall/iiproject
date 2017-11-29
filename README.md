@@ -1,4 +1,4 @@
-**Written by Leo Auyeung and Thomas Westfall** <br /><br />
+**Written by Leo Au-Yeung and Thomas Westfall** <br /><br />
 **Project Description:** <br />
 Create a library catalog-esque project. Project will utilize iindex algorithms, books (English) from Project Gutenberg, NYPL API. Possibly utilize n-grams if we have time <br />
 
@@ -11,7 +11,7 @@ The “indexes” would be the books themselves (so we’ll have a whole catalog
 What a user will be able to do: <br />
 Look up one or more genres of books to find books in our “database” (database will just contain Project Gutenberg books in English) matching the genre(s) <br />
 Program will return most relevant results (say top 5-10?) books of those genres. This will be done by: <br />
-Using an inverted index, return all books containing the major keywords of each genre (keywords can be found with NYPL API) <br />
+Return all books containing the major keywords of each genre (iindex part) along with making sure the words actually appear a good number of times (frequency part); keywords will be found with NYPL/Amazon API (can't seem to find a good list with a Google search of "book genre keywords"<br />
 Checking the frequencies of the keywords of each book, and returning the books with the most frequent occurrences of keywords <br /> <br />
 
 **Side/Future Goals:** <br />
