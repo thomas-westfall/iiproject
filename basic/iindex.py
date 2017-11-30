@@ -39,6 +39,7 @@ def removedupes(l):
 def query(iindex, word):
     for key, value in iindex.items():
         if key == word:
+            freq = len(value)
             return removedupes(value)
     return ""
 
@@ -52,6 +53,7 @@ def queryand(iindex, word, wordb):
         for x in wordone:
             if x in wordtwo:
                 ans.append(x)
+        freq = len(ans)
         return removedupes(ans)
         
     return "One/both word(s) not found"
@@ -67,6 +69,7 @@ def querynot(iindex, word):
     for x in val:
         if not x in avoid:
             ans.append(x)
+    freq = len(ans)
     return removedupes(ans)
 
 
@@ -79,6 +82,7 @@ def queryor(iindex, word, wordb):
     for y in iindex[wordb]:
         if not y in ans:
             ans.append(y)
+    freq = len(ans)
     return removedupes(ans)
         
 sample_index = build_inverted_index('sample-texts.csv',0,1)
