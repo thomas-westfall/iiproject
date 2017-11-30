@@ -63,14 +63,25 @@ def querynot(iindex, word):
     return ans
 
 
-#def queryor(iindex, word, wordb):
-    
+def queryor(iindex, word, wordb):
+    if query(iindex, word) == "" and query(iindex, wordb) == "":
+        return "Neither word found"
+    ans = []
+    for x in iindex[word]:
+        ans.append(x)
+    for y in iindex[wordb]:
+        if not y in ans:
+            ans.append(y)
+    return ans
+        
 sample_index = build_inverted_index('sample-texts.csv',0,1)
 texas_index = build_inverted_index('offenders-clean.csv',0,8)
 #print (sample_index)
 
 #print queryand(texas_index, 'God', 'sorry')
 print query(sample_index, 'do')
+print query(sample_index, 'us')
 print queryand(sample_index, 'do', 'us')
 print querynot(sample_index, 'do')
+print queryor(sample_index, 'do', 'us')
 #print buildvalues(sample_index)
