@@ -20,6 +20,15 @@ def build_inverted_index(filename,keyindex,textindex):
     return d
 
 
+
+def buildvalues(iindex):
+    ans = []
+    for key, value in iindex.items():
+        for x in value:
+            if not x in ans:
+                ans.append(x)
+    return ans
+
 def query(iindex, word):
     for key, value in iindex.items():
         if key == word:
@@ -40,6 +49,21 @@ def queryand(iindex, word, wordb):
         
     return "One/both word(s) not found"
 
+def querynot(iindex, word):
+    val = buildvalues(iindex)
+    
+    if query(iindex, word) == "":
+        return val
+    
+    ans = []
+    avoid = iindex[word]
+    for x in val:
+        if not x in avoid:
+            ans.append(x)
+    return ans
+
+
+#def queryor(iindex, word, wordb):
     
 sample_index = build_inverted_index('sample-texts.csv',0,1)
 texas_index = build_inverted_index('offenders-clean.csv',0,8)
@@ -48,4 +72,5 @@ texas_index = build_inverted_index('offenders-clean.csv',0,8)
 #print queryand(texas_index, 'God', 'sorry')
 print query(sample_index, 'do')
 print queryand(sample_index, 'do', 'us')
-
+print querynot(sample_index, 'do')
+#print buildvalues(sample_index)
