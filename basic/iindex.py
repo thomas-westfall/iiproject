@@ -29,10 +29,17 @@ def buildvalues(iindex):
                 ans.append(x)
     return ans
 
+def removedupes(l):
+    ans = []
+    for x in l:
+        if x not in ans:
+            ans.append(x)
+    return ans
+
 def query(iindex, word):
     for key, value in iindex.items():
         if key == word:
-            return value
+            return removedupes(value)
     return ""
 
 def queryand(iindex, word, wordb):
@@ -45,7 +52,7 @@ def queryand(iindex, word, wordb):
         for x in wordone:
             if x in wordtwo:
                 ans.append(x)
-        return ans
+        return removedupes(ans)
         
     return "One/both word(s) not found"
 
@@ -60,7 +67,7 @@ def querynot(iindex, word):
     for x in val:
         if not x in avoid:
             ans.append(x)
-    return ans
+    return removedupes(ans)
 
 
 def queryor(iindex, word, wordb):
@@ -72,16 +79,18 @@ def queryor(iindex, word, wordb):
     for y in iindex[wordb]:
         if not y in ans:
             ans.append(y)
-    return ans
+    return removedupes(ans)
         
 sample_index = build_inverted_index('sample-texts.csv',0,1)
 texas_index = build_inverted_index('offenders-clean.csv',0,8)
 #print (sample_index)
 
-#print queryand(texas_index, 'God', 'sorry')
-print query(sample_index, 'do')
-print query(sample_index, 'us')
-print queryand(sample_index, 'do', 'us')
-print querynot(sample_index, 'do')
-print queryor(sample_index, 'do', 'us')
+#print query(sample_index, 'do')
+#print query(sample_index, 'us')
+#print queryand(sample_index, 'do', 'us')
+#print querynot(sample_index, 'do')
+#print queryor(sample_index, 'do', 'us')
 #print buildvalues(sample_index)
+
+print query(texas_index, 'Joanna')
+print queryand(texas_index, 'God', 'sorry')
