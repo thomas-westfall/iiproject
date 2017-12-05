@@ -37,3 +37,21 @@ Changes:
 - Created to-do.txt with things we need to create for project
 
 ==============================================================
+
+Date: 2017-11-30
+--------------------------------------------------------------
+
+User: Thomas Westfall
+Changes:
+- Created ability to input and, not, and or queries
+
+==============================================================
+
+Date: 2017-12-04
+--------------------------------------------------------------
+
+User: Leo Au-Yeung
+Changes:
+- Downloaded txts of gutenberg's top 100 books of last 30 days
+
+==============================================================
