@@ -87,6 +87,7 @@ def queryor(iindex, word, wordb):
         
 sample_index = build_inverted_index('sample-texts.csv',0,1)
 texas_index = build_inverted_index('offenders-clean.csv',0,8)
+trump_index = build_inverted_index('MrTrumpSpeeches.csv',0,0)
 #print (sample_index)
 
 #print query(sample_index, 'do')
@@ -96,5 +97,6 @@ texas_index = build_inverted_index('offenders-clean.csv',0,8)
 #print queryor(sample_index, 'do', 'us')
 #print buildvalues(sample_index)
 
-print query(texas_index, 'Joanna')
-print queryand(texas_index, 'God', 'sorry')
+#print query(texas_index, 'Joanna')
+#print queryand(texas_index, 'God', 'sorry')
+print query(trump_index, 'China')
