@@ -40,7 +40,24 @@ def query(iindex, word):
     for key, value in iindex.items():
         if key == word:
             freq = len(value)
-            return removedupes(value)
+            x = 0
+            tempfreq = 0
+            ans = {}
+
+            for i in range(0, freq - 1):
+                if value[i] not in ans:
+                    tempfreq = 0
+                    k = i
+                    while True:
+                        if value[i] == value[k]:
+                            tempfreq = tempfreq + 1
+                            k = k + 1
+                        else:
+                            break
+                    ans[value[i]] = tempfreq
+ 
+            return ans
+            #return removedupes(value)
     return ""
 
 def queryand(iindex, word, wordb):
@@ -54,6 +71,8 @@ def queryand(iindex, word, wordb):
             if x in wordtwo:
                 ans.append(x)
         freq = len(ans)
+        print(word + " appears in " + str(freq) + " lines")
+        #return (ans)
         return removedupes(ans)
         
     return "One/both word(s) not found"
@@ -87,8 +106,8 @@ def queryor(iindex, word, wordb):
         
 sample_index = build_inverted_index('sample-texts.csv',0,1)
 texas_index = build_inverted_index('offenders-clean.csv',0,8)
-trump_index = build_inverted_index('MrTrumpSpeeches.csv',0,0)
-#print (sample_index)
+spam_index = build_inverted_index('spam.csv',0,1)
+#print (texas_index)
 
 #print query(sample_index, 'do')
 #print query(sample_index, 'us')
@@ -97,6 +116,7 @@ trump_index = build_inverted_index('MrTrumpSpeeches.csv',0,0)
 #print queryor(sample_index, 'do', 'us')
 #print buildvalues(sample_index)
 
-#print query(texas_index, 'Joanna')
+print query(texas_index, 'sorry')
 #print queryand(texas_index, 'God', 'sorry')
-print query(trump_index, 'China')
+#print queryand(spam_index, 'Hello','hello')
+#print query(spam_index, "Hello")
