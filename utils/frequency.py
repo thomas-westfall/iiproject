@@ -1,4 +1,5 @@
 import glob
+import os
 
 def clean_word(w):
     '''
@@ -46,6 +47,10 @@ def frequency():
     #list of all .txt files within the folder
     file_list = glob.glob("*.txt")
     
+    #start of main dictionary
+    o = open("book_freq_data.txt", "a+")
+    o.write("{ ")
+    
     for filename in file_list:
         if filename == "book_freq_data.txt":
             print("Not processing book_freq_data")
@@ -69,16 +74,18 @@ def frequency():
                     freq_dict.setdefault(word, 0)
                     freq_dict[word] += 1
             
-            #creating a master dict with key being filename
-            book_dict = {}
-            book_dict.setdefault(filename, freq_dict)
-            
             #write out to data file
-            o = open("book_freq_data.txt", "a+")
-            o.write( str(book_dict) + "\n")
-            o.close()
+            o.write( "'" + filename + "': " + str(freq_dict) + ", ")
             
             print("Completed " + filename + ".")
+    
+    #remove ", " at the end
+    o.seek(-2, os.SEEK_END)
+    o.truncate()
+    
+    #end of main dictionary
+    o.write(" }")
+    o.close()
     
     print("Word frequency data compilation complete")
     

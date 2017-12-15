@@ -75,3 +75,14 @@ Changes:
 	in our book database
 
 ==============================================================
+
+Date: 2017-12-15
+--------------------------------------------------------------
+
+User: Leo Au-Yeung
+Changes:
+- Minor changes to frequency.py script
+- Updated format of compiled book_freq_data.txt of frequency 
+	data
+
+==============================================================
