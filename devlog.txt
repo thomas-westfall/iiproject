@@ -55,3 +55,23 @@ Changes:
 - Downloaded txts of gutenberg's top 100 books of last 30 days
 
 ==============================================================
+
+Date: 2017-12-11
+--------------------------------------------------------------
+
+User: Thomas Westfall
+Changes:
+- Added frequency of query by csv line into a dictionary
+
+==============================================================
+
+Date: 2017-12-14
+--------------------------------------------------------------
+
+User: Leo Au-Yeung
+Changes:
+- Created frequency.py script to get frequency of words
+- Compiled book_freq_data.txt of frequency data from all books
+	in our book database
+
+==============================================================

@@ -14,10 +14,10 @@ MAIN GOALS:
 	2. Have a whole "book_database" folder containing books possibly?
 
 - Create inverted index/frequency index
-	1. First create an inverted index of all words from all books ( format = {"monster": ["frankenstein.txt", "monster.txt", etc...]} )
+	1. First create an inverted index of all words from all books ( format = book_iindex_data.txt => {"monster": ["frankenstein.txt", "monster.txt", etc...]} )
 		- Each index will be the books themselves
 	2. Save this into a "book_iindex_database" folder possibly?
-	3. Create a frequency index of all words from all books as well ( format = frankenstein_word_freq.txt -> {"monster": 25, "kill": 50, etc...} )
+	3. Create a frequency index of all words from all books as well ( format = book_freq_data.txt => { "frankenstein.txt": {"monster": 25, "kill": 50, etc...} } )
 		- Reasoning behind this is because a book may CONTAIN a category word, but it may only appear once/a few times
 		- Using this frequency database, we can get a more accurate idea of which books actually pertain to a genre (if a word appears say 50 times)
 	4. Save this into a "book_frequency_database" folder possibly?
