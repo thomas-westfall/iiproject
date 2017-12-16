@@ -85,4 +85,8 @@ Changes:
 - Updated format of compiled book_freq_data.txt of frequency 
 	data
 
+- Created iindex.py script to get iindex of words to books
+- Compiled book_iindex_data.txt of iindex data from all books
+	in our book database
+
 ==============================================================
