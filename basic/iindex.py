@@ -29,13 +29,6 @@ def buildvalues(iindex):
                 ans.append(x)
     return ans
 
-def removedupes(l):
-    ans = []
-    for x in l:
-        if x not in ans:
-            ans.append(x)
-    return ans
-
 def query(iindex, word):
     for key, value in iindex.items():
         if key == word:
@@ -43,6 +36,7 @@ def query(iindex, word):
             x = 0
             tempfreq = 0
             ans = {}
+            #ans['total'] = freq;
 
             for i in range(0, freq - 1):
                 if value[i] not in ans:
@@ -57,30 +51,30 @@ def query(iindex, word):
                     ans[value[i]] = tempfreq
  
             return ans
-            #return removedupes(value)
-    return ""
 
 def queryand(iindex, word, wordb):
-    ans = []
+    ans = {}
+    temp = []
     
-    if query(iindex, word) != "" and query(iindex, wordb) != "":
-        wordone = iindex[word]
-        wordtwo = iindex[wordb]
+    if query(iindex, word) != {} and query(iindex, wordb) != {}:
 
-        for x in wordone:
-            if x in wordtwo:
-                ans.append(x)
-        freq = len(ans)
-        print(word + " appears in " + str(freq) + " lines")
-        #return (ans)
-        return removedupes(ans)
-        
+        dicta = query(iindex, word)
+        dictb = query(iindex, wordb)
+
+        for key, value in dicta.items():
+            temp = []
+            if key in dictb:
+                temp.append(value)
+                temp.append(dictb[key])
+                ans[key] = temp
+        return ans
+       
     return "One/both word(s) not found"
 
 def querynot(iindex, word):
     val = buildvalues(iindex)
     
-    if query(iindex, word) == "":
+    if query(iindex, word) == {}:
         return val
     
     ans = []
@@ -93,30 +87,44 @@ def querynot(iindex, word):
 
 
 def queryor(iindex, word, wordb):
-    if query(iindex, word) == "" and query(iindex, wordb) == "":
+    if query(iindex, word) == {} and query(iindex, wordb) == {}:
         return "Neither word found"
-    ans = []
-    for x in iindex[word]:
-        ans.append(x)
-    for y in iindex[wordb]:
-        if not y in ans:
-            ans.append(y)
-    freq = len(ans)
-    return removedupes(ans)
-        
+    ans = {}
+    dicta = query(iindex, word)
+    dictb = query(iindex, wordb)
+
+    for key, value in dicta.items():
+        temp = []
+        if not key in dictb:
+            temp.append(value)
+            temp.append(0)
+            ans[key] = temp
+        else:
+            temp.append(value)
+            temp.append(dictb[key])
+            ans[key] = temp
+    for key, value in dictb.items():
+        temp = []
+        if not key in dicta:
+            temp.append(0)
+            temp.append(value)
+            ans[key] = temp
+            
+    return ans
+
 sample_index = build_inverted_index('sample-texts.csv',0,1)
 texas_index = build_inverted_index('offenders-clean.csv',0,8)
 spam_index = build_inverted_index('spam.csv',0,1)
 #print (texas_index)
 
-#print query(sample_index, 'do')
-#print query(sample_index, 'us')
+print query(sample_index, 'do')
+print query(sample_index, 'us')
 #print queryand(sample_index, 'do', 'us')
 #print querynot(sample_index, 'do')
-#print queryor(sample_index, 'do', 'us')
+print queryor(sample_index, 'do', 'us')
 #print buildvalues(sample_index)
 
-print query(texas_index, 'sorry')
+#print query(texas_index, 'sorry')
 #print queryand(texas_index, 'God', 'sorry')
 #print queryand(spam_index, 'Hello','hello')
 #print query(spam_index, "Hello")
