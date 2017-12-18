@@ -83,7 +83,8 @@ def querynot(iindex, word):
         if not x in avoid:
             ans.append(x)
     freq = len(ans)
-    return removedupes(ans)
+    return ans
+ 
 
 
 def queryor(iindex, word, wordb):
@@ -114,17 +115,19 @@ def queryor(iindex, word, wordb):
 
 sample_index = build_inverted_index('sample-texts.csv',0,1)
 texas_index = build_inverted_index('offenders-clean.csv',0,8)
-spam_index = build_inverted_index('spam.csv',0,1)
+survey_index = build_inverted_index('survey.csv',0,26)
 #print (texas_index)
 
+#print (survey_index)
+#print query(survey_index, '0')
 print query(sample_index, 'do')
 print query(sample_index, 'us')
 #print queryand(sample_index, 'do', 'us')
 #print querynot(sample_index, 'do')
+print querynot(survey_index, 'NA')
 print queryor(sample_index, 'do', 'us')
 #print buildvalues(sample_index)
 
 #print query(texas_index, 'sorry')
 #print queryand(texas_index, 'God', 'sorry')
-#print queryand(spam_index, 'Hello','hello')
-#print query(spam_index, "Hello")
+
