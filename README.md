@@ -2,23 +2,21 @@
 Project: LTE - Library Testing Environment
 ==============================================================
 
-**Created by Team L-T-E -- Leo Au-Yeung and Thomas Westfall** <br /><br />
-
+**Created by Team L-T-E -- Leo Au-Yeung and Thomas Westfall** <br />
 Project submitted on December 19, 2017<br /><br />
-
 ==============================================================
 
 **Project Description:** <br />
 LTE: Library Testing Environment is a project that imitates searching a library catalog<br />
 A user will choose a book genre that they wish to search up,<br />
-and the program returns the top 10 books corresponding to that genre from our database<br /><br />
+and the program returns the top 10 books corresponding to that genre from our database<br />
 
 ==============================================================
 
 **Running the project:**<br />
 Make sure you have python installed on your system<br />
-	- python app.py
-Open up a browser and go to localhost:8000<br /><br />
+	- python app.py<br />
+Open up a browser and go to localhost:8000<br />
 
 ==============================================================
 
@@ -27,7 +25,7 @@ The user will open up the homepage and select a genre from the preset list<br />
 The python backend then takes the genre selection and calls up the genre's keywords<br />
 The genre's keywords are then used to coordinate with the frequency data of books in the database<br />
 The books with the most frequent number of keywords that match those of the genre are chosen (10 books)<br />
-The books' titles are then returned to the user in the result page listed in a table from 1 to 10<br /><br />
+The books' titles are then returned to the user in the result page listed in a table from 1 to 10<br />
 
 ==============================================================
 
