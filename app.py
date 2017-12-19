@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for
 from flask import request
-import parsing_data_guide as fl
+import parse_genre_data as fl
 import random
 
 app = Flask(__name__)

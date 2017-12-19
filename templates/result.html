@@ -8,13 +8,11 @@
 		
 		<center>
 			<h1>Listing top books for genre: {{genre}}</h1>
-			
-			<br>Genre: {{genre}}
 			<table class="pure-table pure-table-bordered">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Book Title</th>
+						<th align="left">Book Title</th>
 					</tr>
 				</thead>
 				
@@ -22,13 +20,13 @@
 					{% for i in range (list_size) %}
 					<tr>
 						<th>{{i+1}}</th>
-						<th>{{book_list[i]}}</th>
+						<th align="left">{{book_list[i]}}</th>
 					</tr>
 					{% endfor %}
 				</tbody>
 				
 			</table>
-			
+			<br>
 			<hr>
 			<br>
 			<a href="/">Click here to return to the homepage</a>

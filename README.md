@@ -1,11 +1,15 @@
-**Written by Leo Au-Yeung and Thomas Westfall** <br /><br />
+**Created by Team L-T-E: Leo Au-Yeung and Thomas Westfall** <br /><br />
 **Project Description:** <br />
-Create a library catalog-esque project. Project will utilize iindex algorithms, books (English) from Project Gutenberg, NYPL API. Possibly utilize n-grams if we have time <br />
+LTE: Library Testing Environment is a project that imitates searching a library catalog<br />
 
-Using books from Project Gutenberg (https://www.gutenberg.org/) : <br />
-Create an inverted index (iindex) of English books for categorization: <br />
-Each book would have its own index of words (after ridding major “stop words”/common words) and their frequencies <br />
-The “indexes” would be the books themselves (so we’ll have a whole catalog of English books) <br /><br />
+**Running the project:**
+
+
+**Project creation flow:**<br />
+Downloaded top 100 books from Project Gutenberg (https://www.gutenberg.org/)<br />
+Created a frequency table and inverted index of English books for categorization (ended up using only frequency) <br />
+Created a python backend which takes a query of pre-set book genres and returns a list of top (10) books from our database<br />
+Created a flask frontend which has two pages: homepage to input a query and result page listing book results<br /><br />
 
 **Main Goals:** <br />
 What a user will be able to do: <br />
