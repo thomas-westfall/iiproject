@@ -3,7 +3,9 @@ Project: LTE - Library Testing Environment
 ==============================================================
 
 **Created by Team L-T-E -- Leo Au-Yeung and Thomas Westfall** <br />
-Project submitted on December 19, 2017<br /><br />
+
+Project Submitted on December 19, 2017<br /><br />
+
 ==============================================================
 
 **Project Description:** <br />
