@@ -106,5 +106,25 @@ Date: 2017-12-18
 User: Leo Au-Yeung
 Changes:
 - Created flask front-end with homepage and result page
+- Fixed a bunch of data
+- Started structure of parse_genre_data.py
+
+==============================================================
+
+Date: 2017-12-18
+--------------------------------------------------------------
+
+User: Thomas Westfall
+Changes:
+- Finished parse_genre_data.py, connecting with app.py
+
+==============================================================
+
+Date: 2017-12-19
+--------------------------------------------------------------
+
+User: Leo Au-Yeung
+Changes:
+- Cleaning up some data, adding readme's, updating devlog
 
 ==============================================================
