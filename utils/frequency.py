@@ -49,7 +49,7 @@ def frequency():
     
     #start of main dictionary
     o = open("book_freq_data.txt", "a+")
-    o.write("{ ")
+    o.write("{")
     
     for filename in file_list:
         if filename == "book_freq_data.txt":
@@ -84,7 +84,7 @@ def frequency():
     o.truncate()
     
     #end of main dictionary
-    o.write(" }")
+    o.write("}")
     o.close()
     
     print("Word frequency data compilation complete")
