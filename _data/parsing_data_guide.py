@@ -16,9 +16,10 @@ for line in f:
     #for key in dict --> key = book name, dict[key] = corresponding data; imbedded dictionary
     for key in dict:
         dict2 = dict[key]
-        print(key)
+        if (".txt" in key):
+            print(key)
         #for word in dict2 --> word = word, dict2[word] = frequency of word
         for word in dict2:
             frequency = dict2[word]
-            print(word, frequency)
+            #print(word, frequency)
 f.close()
