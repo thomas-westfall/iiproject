@@ -75,7 +75,7 @@ def frequency():
                     freq_dict[word] += 1
             
             #write out to data file
-            o.write( "'" + filename + "': " + str(freq_dict) + ", ")
+            o.write( '"' + filename + '": ' + str(freq_dict) + ", ")
             
             print("Completed " + filename + ".")
     

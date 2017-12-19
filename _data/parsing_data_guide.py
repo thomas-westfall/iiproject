@@ -20,5 +20,5 @@ for line in f:
         #for word in dict2 --> word = word, dict2[word] = frequency of word
         for word in dict2:
             frequency = dict2[word]
-            print(word, frequency)
+            #print(word, frequency)
 f.close()
